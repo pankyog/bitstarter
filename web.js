@@ -9,12 +9,11 @@ var buf = new Buffer(256);
 var fs = require('fs'); 
 
 
-fs.readFileSync('index.html', buf);
-
+var txt = fs.readFileSync('index.html', 'utf8');
 
 
 app.get('/', function(request, response) {
-  response.send(buf.toString('utf-8'));
+  response.send(txt);
 });
 
 var port = process.env.PORT || 5000;
